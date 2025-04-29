@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGODB)
 
 // Serve API documentation at root URL
 app.get('/', (req, res) => {
-    res.redirect('/api/docs');
+    res.redirect('/docs');
 });
 
 // Health check endpoint
