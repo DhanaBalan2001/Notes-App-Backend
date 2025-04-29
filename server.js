@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import notesRouter from './routes/notes.js';
+import docRouter from './routes/doc.js';
 
 dotenv.config();
 
@@ -26,8 +27,11 @@ mongoose.connect(process.env.MONGODB)
 
 // Serve API documentation at root URL
 app.get('/', (req, res) => {
-    res.redirect('/docs');
+    res.redirect('/api/docs');
 });
+
+// Documentation route
+app.use('/api/docs', docRouter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
